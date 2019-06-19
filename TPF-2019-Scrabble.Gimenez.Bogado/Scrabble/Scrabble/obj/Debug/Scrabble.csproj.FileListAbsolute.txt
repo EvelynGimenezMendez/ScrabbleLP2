@@ -26,3 +26,16 @@ C:\Users\Evelyn\Documents\Facultad\LP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble
 C:\Users\Evelyn\Documents\Facultad\LP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\obj\Debug\Scrabble.csproj.CopyComplete
 C:\Users\Evelyn\Documents\Facultad\LP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\obj\Debug\Scrabble.exe
 C:\Users\Evelyn\Documents\Facultad\LP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\obj\Debug\Scrabble.pdb
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\bin\Debug\Scrabble.exe.config
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\bin\Debug\Scrabble.exe
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\bin\Debug\Scrabble.pdb
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\obj\Debug\Scrabble.csprojAssemblyReference.cache
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\obj\Debug\Scrabble.Inicio.resources
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\obj\Debug\Scrabble.Tablero.resources
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\obj\Debug\Scrabble.Properties.Resources.resources
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\obj\Debug\Scrabble.csproj.GenerateResource.cache
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\obj\Debug\Scrabble.csproj.CoreCompileInputs.cache
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\obj\Debug\Scrabble.csproj.CopyComplete
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\obj\Debug\Scrabble.exe
+C:\Users\Fabian Bogado\Documents\GitHub\ScrabbleLP2\TPF-2019-Scrabble.Gimenez.Bogado\Scrabble\Scrabble\obj\Debug\Scrabble.pdb

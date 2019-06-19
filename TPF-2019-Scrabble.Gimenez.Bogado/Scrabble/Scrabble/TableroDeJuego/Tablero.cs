@@ -201,7 +201,11 @@ namespace Scrabble
         //Funcion para devolver todas las letras puestas en el tablero
         private void lab_deshacer_Click(object sender, EventArgs e)
         {
-            DevolverLetras();
+            if (letra == "")
+            {
+                DevolverLetras();
+            }
+            else MessageBox.Show("Tienes una letra en mano\nDebes devolverla antes D:","Error");
         }
     }
 }

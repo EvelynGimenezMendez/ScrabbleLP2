@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Collections;
 
 namespace Scrabble
 {
     class LetrasPalabras
     {
+        Dictionary<int, string> dictionary = new Dictionary<int,string>
+        {
+            {0,"?"},{1,"A"},{2,"B"},{3,"C"},{4,"CH"},{5,"D"},{6,"E"},{7,"F"},{8,"G"},{9,"H"},{10,"I"},{11,"J"},{12,"L"},{13,"LL"},{14,"M"},{15,"N"},{16,"Ñ"},{17,"O"},{18,"P"},{19,"Q"},{20,"R"},{21,"RR"},{22,"S"},{23,"T"},{24,"U" },{25,"V"},{26,"X"},{27,"Y"},{28,"Z"}
+        };
         string letra_ran;
         string leer;
         int encontrado;
@@ -36,6 +41,13 @@ namespace Scrabble
                         if (Vector_atril[i].ForeColor==Color.Red)
                         {
                             Vector_atril[i].ForeColor = Color.White;
+                            for(int j = 0; j < CantLetras.Length - 1; j++)
+                            {
+                                if (dictionary[j] == Vector_atril[i].Text)
+                                {
+                                    CantLetras[j]++;
+                                }
+                            }
                             Vector_atril[i].Text = Cargar_letras(Environment.TickCount + i);
                         }
                     }
@@ -67,10 +79,7 @@ namespace Scrabble
         public string Cargar_letras(int seed) 
         {
             int ran;
-            var dictionary = new Dictionary<int, string>
-            {
-                {0,"?"},{1,"A"},{2,"B"},{3,"C"},{4,"CH"},{5,"D"},{6,"E"},{7,"F"},{8,"G"},{9,"H"},{10,"I"},{11,"J"},{12,"L"},{13,"LL"},{14,"M"},{15,"N"},{16,"Ñ"},{17,"O"},{18,"P"},{19,"Q"},{20,"R"},{21,"RR"},{22,"S"},{23,"T"},{24,"U" },{25,"V"},{26,"X"},{27,"Y"},{28,"Z"}
-            };
+            
             var random = new Random(seed);
             ran = random.Next(0, 29);
             letra_ran = dictionary[ran];
