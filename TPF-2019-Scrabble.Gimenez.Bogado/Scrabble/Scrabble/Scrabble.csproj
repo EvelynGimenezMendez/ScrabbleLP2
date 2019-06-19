@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Casilla.cs" />
     <Compile Include="EstadoTablero.cs" />
+    <Compile Include="Informacion.cs" />
     <Compile Include="LetrasPalabras.cs" />
     <Compile Include="Menu\Inicio.cs">
       <SubType>Form</SubType>
@@ -57,6 +58,7 @@
     <Compile Include="Menu\Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nodo.cs" />
     <Compile Include="TableroDeJuego\Tablero.cs">
       <SubType>Form</SubType>
     </Compile>

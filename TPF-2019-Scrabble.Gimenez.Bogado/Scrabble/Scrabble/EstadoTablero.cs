@@ -15,6 +15,7 @@ namespace Scrabble
         Casilla[,] casilla_matriz = new Casilla[15, 15]; //Matriz de tipo Casilla. Con ello se forma el tablero estado del juego
         public Casilla[,] Casilla_matriz { get => casilla_matriz; set => casilla_matriz = value; }
         internal LetrasPalabras Letras { get => letras; set => letras = value; }
+        Nodo nodo = new Nodo();
 
         //Funcion para cargar el tablero
         public void Cargar_tablero(ref Label labelR)
@@ -297,6 +298,20 @@ namespace Scrabble
                 MessageBox.Show(formar_palabra_horizontal + "\nNo es una palabra válida :(", "Consulta el diccionario");
                 return 0;
             }
+        }
+
+        public void Crear_raiz() //Se crea la raiz nueva del arbol
+        {
+            for (int i=0;i<15;i++)
+                for (int j=0;j<15;j++)
+                {
+                    nodo.Informacion[i, j] = new Informacion();
+                    nodo.Informacion[i, j].Letra = Casilla_matriz[i, j].LabelCasilla.Text;
+                    nodo.Informacion[i, j].Tag = Convert.ToString(Casilla_matriz[i, j].LabelCasilla.Tag);
+                    nodo.Informacion[i, j].Valor = Casilla_matriz[i, j].Valor;
+                    nodo.Informacion[i, j].Enabled = Casilla_matriz[i, j].LabelCasilla.Enabled;
+                }
+            nodo.Ver_nodo();
         }
     }
 }
