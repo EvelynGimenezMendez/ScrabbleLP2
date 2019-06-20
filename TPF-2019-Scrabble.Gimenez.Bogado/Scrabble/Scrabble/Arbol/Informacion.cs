@@ -13,10 +13,6 @@ namespace Scrabble
         int valor;
         int pesoPalabra;
 
-        public Informacion()
-        {
-        }
-
         public string Letra { get => letra; set => letra = value; }
         public string Tag { get => tag; set => tag = value; }
         public bool Enabled { get => enabled; set => enabled = value; }

@@ -9,20 +9,18 @@ namespace Scrabble
 {
     class Nodo
     {
-
-        //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Atributos <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
         Informacion[,] informacion = new Informacion[15, 15]; //Matriz de tipo Informacion. Con ello se forma el tablero estado del juego
-        Nodo nodoHijo;
-        Nodo nodoHermano;
+        Nodo hijo;
+        Nodo hermano;
 
-        //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Contructores <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-        public Nodo NodoHijo { get => nodoHijo; set => nodoHijo = value; }
-        public Nodo NodoHermano { get => nodoHermano; set => nodoHermano = value; }
+        public Nodo Hijo { get => hijo; set => hijo = value; }
+        public Nodo Hermano { get => hermano; set => hermano = value; }
         public Informacion[,] Informacion { get => informacion; set => informacion = value; }
 
         public Nodo ()
         {
+            Hijo = null;
+            Hermano = null;
         }
 
 

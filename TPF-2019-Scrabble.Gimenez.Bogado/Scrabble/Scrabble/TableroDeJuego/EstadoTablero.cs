@@ -11,10 +11,13 @@ namespace Scrabble
 {
     class EstadoTablero
     {
+        Informacion[,] info = new Informacion[15, 15]; //Matriz de tipo Informacion. Con ello se forma el tablero estado del juego
         LetrasPalabras letras = new LetrasPalabras();//Clase donde se encuentra contenido el diccionario de letras
         Casilla[,] casilla_matriz = new Casilla[15, 15]; //Matriz de tipo Casilla. Con ello se forma el tablero estado del juego
         public Casilla[,] Casilla_matriz { get => casilla_matriz; set => casilla_matriz = value; }
         internal LetrasPalabras Letras { get => letras; set => letras = value; }
+        internal Informacion[,] Info { get => info; set => info = value; }
+
         Nodo nodo = new Nodo();
 
         //Funcion para cargar el tablero
@@ -300,6 +303,25 @@ namespace Scrabble
             }
         }
 
+        public void Crear_info_nodo() //Copia el estado actual del tablero de juego en una matriz
+        {
+            for (int i = 0; i < 15; i++)
+                for (int j = 0; j < 15; j++)
+                    Info[i,j]=new Informacion
+                    {
+                        Letra = Casilla_matriz[i, j].LabelCasilla.Text,
+                        Tag = Convert.ToString(Casilla_matriz[i, j].LabelCasilla.Tag),
+                        Valor = Casilla_matriz[i, j].Valor,
+                        Enabled = Casilla_matriz[i, j].LabelCasilla.Enabled
+                    };
+        }
+
+        public void Crear_arbol()
+        {
+            Crear_info_nodo(); //Se crea la nueva matriz de estado
+            Arbol arbol = new Arbol(); //Se crea un nuevo arbol para cada jugada de la IA 
+            Nodo raiz = arbol.Insertar(Info,"Hola", null); //Se inserta la jugada, un dato,y el nodo al que va hacer referencia
+        }
         
     }
 }

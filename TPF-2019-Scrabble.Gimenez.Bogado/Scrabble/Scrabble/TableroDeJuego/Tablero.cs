@@ -143,7 +143,7 @@ namespace Scrabble
                         jugada++;
                     lab_pasar.Visible = true; lab_jugar.Visible = false;
                     letras.Cargar_atril("");
-                    estadoTablero.Crear_raiz(); //Se crea la raiz nueva con el estado actual del tablero
+                    estadoTablero.Crear_arbol(); //Se crea la raiz nueva con el estado actual del tablero
                 }
             }
             //La primera jugada es un caso especial > Llenar label del centro > No necesita estar en contacto con otros labels anteriores

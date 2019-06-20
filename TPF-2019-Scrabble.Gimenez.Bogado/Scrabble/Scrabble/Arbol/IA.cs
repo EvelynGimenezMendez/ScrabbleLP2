@@ -13,19 +13,19 @@ namespace Scrabble
         EstadoTablero estadoTablero;
         LetrasPalabras letrasPalabras;
 
-
         public LetrasPalabras LetrasPalabras{ get => letrasPalabras; set => letrasPalabras = value; }
         public EstadoTablero EstadoTablero { get => estadoTablero; set => estadoTablero = value; }
         public string[] Vector_atril { get => vector_atril; set => vector_atril = value; }
         public Arbol Arbol { get=>arbol; set=>arbol=value; }
 
-        public void Cargar_atril()
+        public void Cargar_atril() //Se carga el atril de la IA 
         {
             int i;
             for (i = 0; i < 7; i++)
                 if (vector_atril[i] == "")
                     vector_atril[i] = letrasPalabras.Cargar_letras(Environment.TickCount + i); //A cada semilla le sumamos el siguiente indice para no obtener letras iguales                      
         }
+
         public int Verificar_vertical(int fila, int columna)
         {
             string formar_palabra_vertical = "";
@@ -38,26 +38,10 @@ namespace Scrabble
                 fila++;
             }
             fila--;
-            if (letrasPalabras.Consultar_palabra(formar_palabra_vertical.ToLower()) == 1) return 1;
+            if (letrasPalabras.Consultar_palabra(formar_palabra_vertical.ToLower()) == 1)
+                return 1;
 
-            else return 0;
-            
-        }
-        private int CuentaPalabras()
-        {
-            for(int i = 0; i < 15; i++)
-            {
-                for(int j = 0; j < 15; j++)
-                {
-                    if (estadoTablero.Casilla_matriz[i, j].LabelCasilla.Text != "")
-                    {
-                        if(estadoTablero.Casilla_matriz[i-1,j].LabelCasilla.Text==""&&estadoTablero.Casilla_matriz[i+1,j].LabelCasilla.Text=="")
-
-                    }
-            }
-        }
-
-        
-
+            else return 0;   
+        } 
     }
 }
