@@ -48,9 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Casilla.cs" />
-    <Compile Include="EstadoTablero.cs" />
-    <Compile Include="Informacion.cs" />
+    <Compile Include="Arbol\Arbol.cs" />
+    <Compile Include="Arbol\IA.cs" />
+    <Compile Include="TableroDeJuego\Casilla.cs" />
+    <Compile Include="TableroDeJuego\EstadoTablero.cs" />
+    <Compile Include="Arbol\Informacion.cs" />
     <Compile Include="LetrasPalabras.cs" />
     <Compile Include="Menu\Inicio.cs">
       <SubType>Form</SubType>
@@ -58,7 +60,7 @@
     <Compile Include="Menu\Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nodo.cs" />
+    <Compile Include="Arbol\Nodo.cs" />
     <Compile Include="TableroDeJuego\Tablero.cs">
       <SubType>Form</SubType>
     </Compile>
