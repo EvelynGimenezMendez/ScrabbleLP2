@@ -12,7 +12,6 @@ namespace Scrabble
         string[] vector_atril;
         EstadoTablero estadoTablero;
         LetrasPalabras letrasPalabras;
-
         public LetrasPalabras LetrasPalabras{ get => letrasPalabras; set => letrasPalabras = value; }
         public EstadoTablero EstadoTablero { get => estadoTablero; set => estadoTablero = value; }
         public string[] Vector_atril { get => vector_atril; set => vector_atril = value; }
@@ -40,7 +39,6 @@ namespace Scrabble
             fila--;
             if (letrasPalabras.Consultar_palabra(formar_palabra_vertical.ToLower()) == 1)
                 return 1;
-
             else return 0;   
         } 
     }
