@@ -12,17 +12,20 @@ namespace Scrabble
 {
     class LetrasPalabras
     {
+
         Dictionary<int, string> dictionary = new Dictionary<int,string>
         {
             {0,"?"},{1,"A"},{2,"B"},{3,"C"},{4,"CH"},{5,"D"},{6,"E"},{7,"F"},{8,"G"},{9,"H"},{10,"I"},{11,"J"},{12,"L"},{13,"LL"},{14,"M"},{15,"N"},{16,"Ñ"},{17,"O"},{18,"P"},{19,"Q"},{20,"R"},{21,"RR"},{22,"S"},{23,"T"},{24,"U" },{25,"V"},{26,"X"},{27,"Y"},{28,"Z"}
         };
+
         string letra_ran;
         string leer;
         int encontrado;
         public Label [] vector_atril = new Label[7]; //Vector de tipo Casilla. Con ello se forma el atril de letras
         public Label[] Vector_atril { get => vector_atril; set => vector_atril = value; }
-        int[] CantLetras = { 2, 12, 2, 4, 1, 5, 12, 1, 2, 2, 6, 1, 4, 1, 2, 5, 1, 9, 2, 1, 5, 1, 6, 4, 5, 1, 1, 1, 1 };
+        public Dictionary<int, string> Dictionary { get => dictionary; set => dictionary = value; }
 
+        int[] CantLetras = { 2, 12, 2, 4, 1, 5, 12, 1, 2, 2, 6, 1, 4, 1, 2, 5, 1, 9, 2, 1, 5, 1, 6, 4, 5, 1, 1, 1, 1 };
         //Cargamos el atril del usuario / Devolvemos las letras / Cambiamos las letras
         public void Cargar_atril(string devolver)
         {
@@ -43,7 +46,7 @@ namespace Scrabble
                             Vector_atril[i].ForeColor = Color.White;
                             for(int j = 0; j < CantLetras.Length - 1; j++)
                             {
-                                if (dictionary[j] == Vector_atril[i].Text)
+                                if (Dictionary[j] == Vector_atril[i].Text)
                                 {
                                     CantLetras[j]++;
                                 }
@@ -78,12 +81,17 @@ namespace Scrabble
         //Diccionario de las letras disponibles en el juego y su indice numerico
         public string Cargar_letras(int seed) 
         {
-            int ran;
-            
-            var random = new Random(seed);
-            ran = random.Next(0, 29);
-            letra_ran = dictionary[ran];
-            CantLetras[ran]--;
+            int suma = 0;
+            for (int i = 0; i < 29; i++) suma += CantLetras[i];
+            if (suma > 0)
+            {
+                int ran;
+
+                var random = new Random(seed);
+                ran = random.Next(0, 29);
+                if (CantLetras[ran] != 0) { CantLetras[ran]--; letra_ran = Dictionary[ran]; }
+                else Cargar_letras(seed + Environment.TickCount);
+            }
             return letra_ran;
         }
         //Verificamos la existencia de una palabra en nuestro diccionario
@@ -91,7 +99,7 @@ namespace Scrabble
         {
             int ban = 0;
 
-            StreamReader diccionarioPalabras = new StreamReader(@"Documentos\Palabras.txt");
+            StreamReader diccionarioPalabras = new StreamReader(@"Documentos\Palabras.txt",System.Text.Encoding.Default,false);
             while ((leer = diccionarioPalabras.ReadLine()) != null && ban != 1)
             {
                 if (leer == palabra)

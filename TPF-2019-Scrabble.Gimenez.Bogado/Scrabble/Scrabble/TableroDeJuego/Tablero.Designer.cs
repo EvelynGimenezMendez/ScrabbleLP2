@@ -3236,12 +3236,12 @@
             this.puntaje_yo.BackColor = System.Drawing.Color.Transparent;
             this.puntaje_yo.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.puntaje_yo.ForeColor = System.Drawing.Color.Peru;
-            this.puntaje_yo.Location = new System.Drawing.Point(690, 383);
+            this.puntaje_yo.Location = new System.Drawing.Point(659, 383);
             this.puntaje_yo.Name = "puntaje_yo";
-            this.puntaje_yo.Size = new System.Drawing.Size(111, 98);
+            this.puntaje_yo.Size = new System.Drawing.Size(143, 98);
             this.puntaje_yo.TabIndex = 242;
             this.puntaje_yo.Tag = "no";
-            this.puntaje_yo.Text = "9";
+            this.puntaje_yo.Text = "0";
             this.puntaje_yo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // puntaje_pc
@@ -3249,12 +3249,12 @@
             this.puntaje_pc.BackColor = System.Drawing.Color.Transparent;
             this.puntaje_pc.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.puntaje_pc.ForeColor = System.Drawing.Color.Peru;
-            this.puntaje_pc.Location = new System.Drawing.Point(827, 383);
+            this.puntaje_pc.Location = new System.Drawing.Point(814, 383);
             this.puntaje_pc.Name = "puntaje_pc";
-            this.puntaje_pc.Size = new System.Drawing.Size(111, 98);
+            this.puntaje_pc.Size = new System.Drawing.Size(154, 98);
             this.puntaje_pc.TabIndex = 243;
             this.puntaje_pc.Tag = "no";
-            this.puntaje_pc.Text = "45";
+            this.puntaje_pc.Text = "0";
             this.puntaje_pc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Tablero

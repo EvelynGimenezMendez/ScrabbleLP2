@@ -17,7 +17,7 @@ namespace Scrabble
     public partial class Tablero : Form
     {
         string letra=""; //Guarda la letra a ingresar en el tablero
-        int cambiar = 0, jugada = 0;
+        int cambiar = 0, jugada = 0, mi_puntaje = 0, puntaje;
         LetrasPalabras letras = new LetrasPalabras(); //Clase donde se encuentra contenido el diccionario de letras
         EstadoTablero estadoTablero = new EstadoTablero(); //Clase donde creamos el tablero con la clase casillas
         SoundPlayer player = new SoundPlayer(@"Sonidos\Click.wav");
@@ -60,6 +60,7 @@ namespace Scrabble
         //Obtiene la casilla donde sera contenida la letra elegida, envia parametros a la clase tablero para crear con ellas una casilla 
         private void Buscar(object sender, EventArgs e) 
         {
+            int resultado=0;
             if (letra != "")
             {
                 lab_pasar.Visible = false; lab_jugar.Visible = true; //Para que no cambie el boton pasar si la letra esta vacia
@@ -67,7 +68,7 @@ namespace Scrabble
             if ((sender as Label).Text == "" && letra != "")
             {
                 (sender as Label).Text = letra;
-                estadoTablero.Cargar_jugada((sender as Label).Text, (sender as Label).Name);
+                resultado=estadoTablero.Cargar_jugada((sender as Label).Text, (sender as Label).Name);
                 if (letra == "CH" || letra == "LL" || letra == "RR") //Ajustamos las letras especiales
                     (sender as Label).Font = new Font("Microsoft Sans Serif", 12.75F);
                 else
@@ -76,6 +77,12 @@ namespace Scrabble
                 letra = "";
                 (sender as Label).BackColor = Color.DimGray;
             }   
+
+            if (resultado==0)
+            {
+                MessageBox.Show(" Existen fichas CH, LL y RR \n Esa no es una jugada válida :'(");
+                DevolverLetras();
+            }
         }
         //Eventos y acciones al hacer click en los label de nuestra tabla de letras
         private void Lb1_lb7_Click(object sender, EventArgs e) 
@@ -134,7 +141,7 @@ namespace Scrabble
             //Se verifica la palabra ingresada, si no es valida se devuelven las letras al atril
             if (l_7_7.Text != "")
             {
-                if (estadoTablero.Verificar_palabra(ref jugada) != "Success")
+                if (estadoTablero.Verificar_palabra(ref jugada,ref puntaje) != "Success")
                     DevolverLetras();
                 //Si es valida se llenan las letras del atril
                 else
@@ -142,8 +149,10 @@ namespace Scrabble
                     if (jugada == 0)
                         jugada++;
                     lab_pasar.Visible = true; lab_jugar.Visible = false;
+                    mi_puntaje = mi_puntaje + puntaje;
+                    puntaje_yo.Text = Convert.ToString(mi_puntaje);
                     letras.Cargar_atril("");
-                    estadoTablero.Crear_raiz(); //Se crea la raiz nueva con el estado actual del tablero
+                    estadoTablero.Crear_arbol(); //Se crea la raiz nueva con el estado actual del tablero
                 }
             }
             //La primera jugada es un caso especial > Llenar label del centro > No necesita estar en contacto con otros labels anteriores
@@ -192,6 +201,9 @@ namespace Scrabble
             {
                 if (Formlabel is Label && Convert.ToString(Formlabel.Tag) != "no" && Formlabel.Enabled == true && Formlabel.Text!="")
                 {
+                    if (Formlabel.ForeColor == Color.DodgerBlue)
+                        Formlabel.Text = "?";
+
                     devolver = Formlabel.Text;
                     Formlabel.Text = "";
                     Formlabel.BackColor = Color.Transparent;
