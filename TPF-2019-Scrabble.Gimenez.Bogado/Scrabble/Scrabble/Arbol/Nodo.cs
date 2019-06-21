@@ -22,16 +22,6 @@ namespace Scrabble
         {
             Hijo = null;
             Hermano = null;
-        }
-
-
-
-
-
-        
-
-
-
-        
+        }  
     }
 }
