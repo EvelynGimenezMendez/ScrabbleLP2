@@ -60,6 +60,7 @@ namespace Scrabble
         //Obtiene la casilla donde sera contenida la letra elegida, envia parametros a la clase tablero para crear con ellas una casilla 
         private void Buscar(object sender, EventArgs e) 
         {
+            int resultado=0;
             if (letra != "")
             {
                 lab_pasar.Visible = false; lab_jugar.Visible = true; //Para que no cambie el boton pasar si la letra esta vacia
@@ -67,7 +68,7 @@ namespace Scrabble
             if ((sender as Label).Text == "" && letra != "")
             {
                 (sender as Label).Text = letra;
-                estadoTablero.Cargar_jugada((sender as Label).Text, (sender as Label).Name);
+                resultado=estadoTablero.Cargar_jugada((sender as Label).Text, (sender as Label).Name);
                 if (letra == "CH" || letra == "LL" || letra == "RR") //Ajustamos las letras especiales
                     (sender as Label).Font = new Font("Microsoft Sans Serif", 12.75F);
                 else
@@ -76,6 +77,12 @@ namespace Scrabble
                 letra = "";
                 (sender as Label).BackColor = Color.DimGray;
             }   
+
+            if (resultado==0)
+            {
+                MessageBox.Show(" Existen fichas CH, LL y RR \n Esa no es una jugada válida :'(");
+                DevolverLetras();
+            }
         }
         //Eventos y acciones al hacer click en los label de nuestra tabla de letras
         private void Lb1_lb7_Click(object sender, EventArgs e) 
@@ -192,6 +199,9 @@ namespace Scrabble
             {
                 if (Formlabel is Label && Convert.ToString(Formlabel.Tag) != "no" && Formlabel.Enabled == true && Formlabel.Text!="")
                 {
+                    if (Formlabel.ForeColor == Color.DodgerBlue)
+                        Formlabel.Text = "?";
+
                     devolver = Formlabel.Text;
                     Formlabel.Text = "";
                     Formlabel.BackColor = Color.Transparent;

@@ -47,9 +47,10 @@ namespace Scrabble
             }
          }
         //Funcion para agregar el valor de la letra jugada en la matriz
-        public void Cargar_jugada(string letra_marcada,string nombreLabel)
+        public int Cargar_jugada(string letra_marcada, string nombreLabel)
         {
-            StreamReader letrasPuntos = new StreamReader(@"Documentos\LetrasPuntos.txt",System.Text.Encoding.Default,false);
+            bool band = false;
+            StreamReader letrasPuntos = new StreamReader(@"Documentos\LetrasPuntos.txt", System.Text.Encoding.Default, false);
             string leer; //Variable donde almacenar el string leido en el archivo de texto plano
             string[] nombre = new string[3]; //Vactor para almacenar posicion obtenida del nombre del objeto
             string[] puntos_valor = new string[3]; //Vector para almacenar los valores de una letra del texto plano
@@ -57,12 +58,61 @@ namespace Scrabble
             nombre = nombreLabel.Split('_');
             int y = int.Parse(nombre[1]); //Fila
             int x = int.Parse(nombre[2]); //Columna
+
+            if(letra_marcada=="?")
+            {
+                string palabra_buscar = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la letra por la cual reemplazar su comodin:", "Diccionario").ToUpper().Trim();
+                for(int i = 0; i < 29; i++)
+                {
+                    if (palabra_buscar == letras.Dictionary[i])
+                    {
+                        band = true;
+                        Casilla_matriz[y, x].LabelCasilla.Text = palabra_buscar;
+                        Casilla_matriz[y, x].LabelCasilla.ForeColor = Color.DodgerBlue;
+                    }
+                }
+                if (band == false)
+                {
+                    MessageBox.Show("La letra ingresada no es valida");
+                    Cargar_jugada("?", nombreLabel);
+                }
+            }
             while ((leer = letrasPuntos.ReadLine()) != null)
             {
                 puntos_valor = leer.Split(',');
                 if (puntos_valor[0] == letra_marcada)
                     Casilla_matriz[y, x].Valor = int.Parse(puntos_valor[1]);
             }
+
+            if (letra_marcada == "C")
+            {
+                if (Casilla_matriz[y + 1, x].LabelCasilla.Text == "H" || Casilla_matriz[y - 1, x].LabelCasilla.Text == "H" || Casilla_matriz[y, x + 1].LabelCasilla.Text == "H" || Casilla_matriz[y, x - 1].LabelCasilla.Text == "H" )
+                {
+                    return 0;
+                }
+            }
+            else if (letra_marcada == "H")
+            {
+                if (Casilla_matriz[y + 1, x].LabelCasilla.Text == "C" || Casilla_matriz[y - 1, x].LabelCasilla.Text == "C" || Casilla_matriz[y, x + 1].LabelCasilla.Text == "C" || Casilla_matriz[y, x - 1].LabelCasilla.Text == "C")
+                {
+                    return 0;
+                }
+            }
+            else if (letra_marcada == "R")
+            {
+                if (Casilla_matriz[y + 1, x].LabelCasilla.Text == "R" || Casilla_matriz[y - 1, x].LabelCasilla.Text == "R" || Casilla_matriz[y, x + 1].LabelCasilla.Text == "R" || Casilla_matriz[y, x - 1].LabelCasilla.Text == "R")
+                {
+                    return 0;
+                }
+            }
+            else if (letra_marcada == "L")
+            {
+                if (Casilla_matriz[y + 1, x].LabelCasilla.Text == "L" || Casilla_matriz[y - 1, x].LabelCasilla.Text == "L" || Casilla_matriz[y, x + 1].LabelCasilla.Text == "L" || Casilla_matriz[y, x - 1].LabelCasilla.Text == "L")
+                {
+                    return 0;
+                }
+            }
+            return 1;
         }
         //Funcion para verificar la jugada > Verifica la palabra ingresada en caso de que la jugada (disposicion de las letras) sea valida
         public string Verificar_palabra(ref int jugada)
