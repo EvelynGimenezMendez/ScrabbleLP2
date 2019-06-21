@@ -3,7 +3,4 @@ Trabajo práctico de LP2.
 *Evelyn Gimenez
 *Elias Bogado
 
-Verificacion > Lista
-Resta de letras > Lista
-Primera jugada > Lista 
-Arbol > No listo
+Letras del atril. Suma y resta de letras totales.
