@@ -17,34 +17,39 @@ namespace Scrabble
         {
             {0,"?"},{1,"A"},{2,"B"},{3,"C"},{4,"CH"},{5,"D"},{6,"E"},{7,"F"},{8,"G"},{9,"H"},{10,"I"},{11,"J"},{12,"L"},{13,"LL"},{14,"M"},{15,"N"},{16,"Ñ"},{17,"O"},{18,"P"},{19,"Q"},{20,"R"},{21,"RR"},{22,"S"},{23,"T"},{24,"U" },{25,"V"},{26,"X"},{27,"Y"},{28,"Z"}
         };
-
+        //int[] CantLetras = { 2, 12, 2, 4, 1, 5, 12, 1, 2, 2, 6, 1, 4, 1, 2, 5, 1, 9, 2, 1, 5, 1, 6, 4, 5, 1, 1, 1, 1 };
         string letra_ran;
         string leer;
         int encontrado;
         public Label [] vector_atril = new Label[7]; //Vector de tipo Casilla. Con ello se forma el atril de letras
         public Label[] Vector_atril { get => vector_atril; set => vector_atril = value; }
         public Dictionary<int, string> Dictionary { get => dictionary; set => dictionary = value; }
-
-        int[] CantLetras = { 2, 12, 2, 4, 1, 5, 12, 1, 2, 2, 6, 1, 4, 1, 2, 5, 1, 9, 2, 1, 5, 1, 6, 4, 5, 1, 1, 1, 1 };
+        int[] CantLetras = { 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         //Cargamos el atril del usuario / Devolvemos las letras / Cambiamos las letras
         public void Cargar_atril(string devolver)
         {
-            int i;
-            int ban = 0;
+            string cargar;
+            int ban = 0,i;
 
             for (i = 0; i < 7; i++)
                 if (Vector_atril[i].Text == "" && ban == 0 || devolver=="Cambio")
                 {
                     //Si devolver es igual a "" la funcion carga nuevas letras a los espacios vacios
                     if (devolver == "")
-                        Vector_atril[i].Text = Cargar_letras(Environment.TickCount + i); //A cada semilla le sumamos el siguiente indice para no obtener letras iguales
-                    //Si devolver es igual a "Cambio" cambiamos las letras seleccionadas
-                    else if (devolver=="Cambio")
                     {
-                        if (Vector_atril[i].ForeColor==Color.Red)
+                        cargar = Cargar_letras(Environment.TickCount + i); //A cada semilla le sumamos el siguiente indice para no obtener letras iguales
+                        if (cargar != "Vacio")
+                            Vector_atril[i].Text = cargar;
+                        else
+                            return;
+                    }
+                    //Si devolver es igual a "Cambio" cambiamos las letras seleccionadas
+                    else if (devolver == "Cambio")
+                    {
+                        if (Vector_atril[i].ForeColor == Color.Red)
                         {
                             Vector_atril[i].ForeColor = Color.White;
-                            for(int j = 0; j < CantLetras.Length - 1; j++)
+                            for (int j = 0; j < CantLetras.Length - 1; j++)
                             {
                                 if (Dictionary[j] == Vector_atril[i].Text)
                                 {
@@ -82,17 +87,23 @@ namespace Scrabble
         public string Cargar_letras(int seed) 
         {
             int suma = 0;
-            for (int i = 0; i < 29; i++) suma += CantLetras[i];
+            for (int i = 0; i < 29; i++)
+                suma += CantLetras[i];
             if (suma > 0)
             {
                 int ran;
-
                 var random = new Random(seed);
                 ran = random.Next(0, 29);
-                if (CantLetras[ran] != 0) { CantLetras[ran]--; letra_ran = Dictionary[ran]; }
+                if (CantLetras[ran] != 0)
+                {
+                    CantLetras[ran]--;
+                    letra_ran = Dictionary[ran];
+                }
                 else Cargar_letras(seed + Environment.TickCount);
+                return letra_ran;
             }
-            return letra_ran;
+            else
+                return "Vacio";
         }
         //Verificamos la existencia de una palabra en nuestro diccionario
         public int Consultar_palabra(string palabra) 
