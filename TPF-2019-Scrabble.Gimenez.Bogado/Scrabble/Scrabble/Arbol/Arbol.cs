@@ -60,5 +60,29 @@ namespace Scrabble
                 return temp;
             }
         }
+        /*public void TransversaPreO(Nodo pNodo)
+        {
+            if (pNodo == null)
+                return;
+
+            //Me proceso
+            //SE HACE EL PROCESO QUE SE QUIERA (VERIFICACION, LETRAS, ETC)
+            for (int n = 0; n < i; n++)
+                Console.Write(" ");
+
+            Console.WriteLine(pNodo.Dato);
+
+            //Proceso a mi hijo
+            if (pNodo.Hijo != null)
+            {
+                i++;
+                TransversaPreO(pNodo.Hijo);
+                i--;
+            }
+
+            //Si tengo hermanos los proceso
+            if (pNodo.Hermano != null)
+                TransversaPreO(pNodo.Hermano);
+        }*/
     }
 }

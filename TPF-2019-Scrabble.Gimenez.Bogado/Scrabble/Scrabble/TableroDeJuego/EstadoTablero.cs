@@ -49,7 +49,7 @@ namespace Scrabble
         //Funcion para agregar el valor de la letra jugada en la matriz
         public void Cargar_jugada(string letra_marcada,string nombreLabel)
         {
-            StreamReader letrasPuntos = new StreamReader(@"Documentos\LetrasPuntos.txt");
+            StreamReader letrasPuntos = new StreamReader(@"Documentos\LetrasPuntos.txt",System.Text.Encoding.Default,false);
             string leer; //Variable donde almacenar el string leido en el archivo de texto plano
             string[] nombre = new string[3]; //Vactor para almacenar posicion obtenida del nombre del objeto
             string[] puntos_valor = new string[3]; //Vector para almacenar los valores de una letra del texto plano
