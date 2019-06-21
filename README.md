@@ -3,7 +3,6 @@ Trabajo práctico de LP2.
 *Evelyn Gimenez
 *Elias Bogado
 
-Verificacion > Lista
-Resta de letras > Lista
-Primera jugada > Lista 
-Arbol > No listo
+Fichas. Puntaje. Atril
+Jugada del usuario terminada. 
+Arbol en proceso. Version estable. 
