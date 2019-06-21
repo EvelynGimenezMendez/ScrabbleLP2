@@ -3,6 +3,7 @@ Trabajo práctico de LP2.
 *Evelyn Gimenez
 *Elias Bogado
 
+Arbol creado.
 Atril y letras. 
 Funcionalidad del comodin. 
 Limite de las letras. 
