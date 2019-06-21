@@ -3,7 +3,5 @@ Trabajo práctico de LP2.
 *Evelyn Gimenez
 *Elias Bogado
 
-Verificacion > Lista
-Resta de letras > Lista
-Primera jugada > Lista 
-Arbol > No listo
+Creando jugada de la IA. 
+Solo arbol.
